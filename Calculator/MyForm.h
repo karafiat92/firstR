@@ -462,7 +462,7 @@ private: System::Void but_Clear_Click(System::Object^ sender, System::EventArgs^
 	dResult = 0;
 	count = 0; // Очищение
 }
-
+	   //
 private: System::Void Result_Click(System::Object^ sender, System::EventArgs^ e) //РЕЗУЛЬТАТ
 {
 	if (operators == "")
