@@ -1,0 +1,3 @@
+C:\Users\Karafiat\source\repos\Calculator\Calculator\Release\Calculator.MyForm.resources
+C:\Users\Karafiat\source\repos\Calculator\Calculator\Release\Calculator.vcxproj.GenerateResource.cache
+C:\Users\Karafiat\source\repos\Calculator\Calculator\Release\Calculator.vcxprojAssemblyReference.cache
