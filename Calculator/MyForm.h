@@ -106,7 +106,7 @@ namespace Calculator {
 			this->textBoxForResult->Size = System::Drawing::Size(360, 51);
 			this->textBoxForResult->TabIndex = 0;
 			this->textBoxForResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
-			this->textBoxForResult->TextChanged += gcnew System::EventHandler(this, &MyForm::textBoxForResult_TextChanged);
+			
 			// 
 			// lab_calculator
 			// 
