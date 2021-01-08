@@ -106,7 +106,6 @@ namespace Calculator {
 			this->textBoxForResult->Size = System::Drawing::Size(360, 51);
 			this->textBoxForResult->TabIndex = 0;
 			this->textBoxForResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
-			
 			// 
 			// lab_calculator
 			// 
@@ -462,58 +461,68 @@ private: System::Void but_Clear_Click(System::Object^ sender, System::EventArgs^
 	dResult = 0;
 	count = 0; // Очищение
 }
-	   //
+bool Protect() // Защита от нажатия на пробел, если выводить нечего
+{
+	if (textBoxForResult->Text->Length == 0 || sValue1 == "") return false;
+	else return true;
+}
 private: System::Void Result_Click(System::Object^ sender, System::EventArgs^ e) //РЕЗУЛЬТАТ
 {
-	if (operators == "")
+	if (Protect())
 	{
-		textBoxForResult->Text = sValue2;
-	}
-	double dValue1  = System::Convert::ToDouble(sValue1); // преобразуем строку в double
-	double dValue2 = System::Convert::ToDouble(sValue2); // преобразуем строку в double
-	double dResult{ 0 };
-	count = 1;
-	if (operators == "+") // СЛОЖЕНИЕ
-	{
-		dResult = dValue1 + dValue2;
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "-")// ВЫЧИТАНИЕ
-	{
-		dResult = dValue1 - dValue2;
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "/")// ДЕЛЕНИЕ
-	{
-		dResult = dValue1 / dValue2;
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "*")// УМНОЖЕНИЕ
-	{
-		dResult = dValue1 * dValue2;
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "|") // ПОБИТОВОЕ ИЛИ
-	{
-		dResult = static_cast<int>(dValue1) | static_cast<int>(dValue2);
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "&&") // ПОБИТОВОЕ И
-	{
-		dResult = static_cast<int>(dValue1) & static_cast<int>(dValue2);
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
-	}
-	if (operators == "^") // ПОБИТОВОЕ ИСКЛЮЧАЮЩЕЕ ИЛИ
-	{
-		dResult = static_cast<int>(dValue1) ^ static_cast<int>(dValue2);
-		//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-		textBoxForResult->Text = System::Convert::ToString(dResult);
+		double dValue1 = System::Convert::ToDouble(sValue1); // преобразуем строку в double
+		double dValue2 = System::Convert::ToDouble(sValue2); // преобразуем строку в double
+		double dResult{ 0 };
+		count = 1;
+		if (operators == "+") // СЛОЖЕНИЕ
+		{
+			dResult = dValue1 + dValue2;
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
+		if (operators == "-")// ВЫЧИТАНИЕ
+		{
+			dResult = dValue1 - dValue2;
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
+		if (operators == "/")// ДЕЛЕНИЕ
+		{
+			if (dValue2 != 0) 
+			{
+				dResult = dValue1 / dValue2;
+				//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+				textBoxForResult->Text = System::Convert::ToString(dResult);
+			}
+			else 
+			{ 
+				MessageBox::Show("Попытка деления на 0", "Ошибка"); 
+}
+		}
+		if (operators == "*")// УМНОЖЕНИЕ
+		{
+			dResult = dValue1 * dValue2;
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
+		if (operators == "|") // ПОБИТОВОЕ ИЛИ
+		{
+			dResult = static_cast<int>(dValue1) | static_cast<int>(dValue2);
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
+		if (operators == "&&") // ПОБИТОВОЕ И
+		{
+			dResult = static_cast<int>(dValue1) & static_cast<int>(dValue2);
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
+		if (operators == "^") // ПОБИТОВОЕ ИСКЛЮЧАЮЩЕЕ ИЛИ
+		{
+			dResult = static_cast<int>(dValue1) ^ static_cast<int>(dValue2);
+			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(dResult);
+		}
 	}
 }
 };
