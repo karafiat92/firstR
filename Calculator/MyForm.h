@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
+#include "MathLibrary.h"
 namespace Calculator {
 
 	using namespace System;
@@ -476,23 +477,17 @@ private: System::Void Result_Click(System::Object^ sender, System::EventArgs^ e)
 		count = 1;
 		if (operators == "+") // СЛОЖЕНИЕ
 		{
-			dResult = dValue1 + dValue2;
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::Add(dValue1, dValue2));
 		}
 		if (operators == "-")// ВЫЧИТАНИЕ
 		{
-			dResult = dValue1 - dValue2;
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::Subtract(dValue1, dValue2));
 		}
 		if (operators == "/")// ДЕЛЕНИЕ
 		{
 			if (dValue2 != 0) 
 			{
-				dResult = dValue1 / dValue2;
-				//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-				textBoxForResult->Text = System::Convert::ToString(dResult);
+				textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::Divide(dValue1, dValue2));
 			}
 			else 
 			{ 
@@ -501,27 +496,19 @@ private: System::Void Result_Click(System::Object^ sender, System::EventArgs^ e)
 		}
 		if (operators == "*")// УМНОЖЕНИЕ
 		{
-			dResult = dValue1 * dValue2;
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::Multiply(dValue1, dValue2));
 		}
 		if (operators == "|") // ПОБИТОВОЕ ИЛИ
 		{
-			dResult = static_cast<int>(dValue1) | static_cast<int>(dValue2);
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::OR(dValue1, dValue2));
 		}
 		if (operators == "&&") // ПОБИТОВОЕ И
 		{
-			dResult = static_cast<int>(dValue1) & static_cast<int>(dValue2);
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::AND(dValue1, dValue2));
 		}
 		if (operators == "^") // ПОБИТОВОЕ ИСКЛЮЧАЮЩЕЕ ИЛИ
 		{
-			dResult = static_cast<int>(dValue1) ^ static_cast<int>(dValue2);
-			//textBoxForResult->Text = textBoxForResult->Text + "=" + System::Convert::ToString(dResult);
-			textBoxForResult->Text = System::Convert::ToString(dResult);
+			textBoxForResult->Text = System::Convert::ToString(MathLibrary::Operation::XOR(dValue1, dValue2));
 		}
 	}
 }

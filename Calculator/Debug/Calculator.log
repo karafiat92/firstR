@@ -1,3 +1,6 @@
 ﻿  MyForm.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Создание кода...
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  Calculator.vcxproj -> C:\Users\Karafiat\source\repos\Calculator\Debug\Calculator.exe
+MathLibrary.lib(MathLibrary.obj) : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
+  Calculator.vcxproj -> C:\Users\Karafiat\source\repos\StaticMath\Debug\Calculator.exe

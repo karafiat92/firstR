@@ -1,0 +1,2 @@
+C:\Users\Karafiat\source\repos\StaticMath\Debug\MathLibrary.pdb
+C:\Users\Karafiat\source\repos\StaticMath\MathLibrary\Debug\MathLibrary.pdb
